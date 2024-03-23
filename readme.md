@@ -1,7 +1,7 @@
 # Cryptonator
 This is me trying out session management and cryptography function in browser (SubtleCrypto). The goal is to implement some kind of E2EE system. No idea where it will go.
 
-## Note to self 1
+## HTTPS needed
 Most of the Crypto stuff needs an https connexion, hence the whole certificate folder. The certificate validates localhost, and the nginx config can be found in the nginx file.
 
 If needed, here's the step I took to create the certificate chain, should work with Debian/Ubuntu on which OpenSSL is installed.
@@ -15,7 +15,6 @@ Create stuff, answer questions, the only important one is the fully qualified do
 
 Create configuration file `openssl.cnf`, `[ alt_names ]` should be your FQDN : 
 
-    # Extensions to add to a certificate request
     basicConstraints       = CA:FALSE
     authorityKeyIdentifier = keyid:always, issuer:always
     keyUsage               = nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment
