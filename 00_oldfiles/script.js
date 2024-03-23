@@ -46,7 +46,7 @@ let salt;
 let ciphertext;
 let iv;
 
-async function decrypt() {
+async function doencryptionstuff() {
     let enc = new TextEncoder();
     let keyMaterial = await window.crypto.subtle.importKey(
         "raw", 
@@ -101,4 +101,4 @@ async function decrypt() {
     }
 }
 
-decrypt();
+doencryptionstuff();
