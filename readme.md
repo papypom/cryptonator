@@ -6,14 +6,14 @@ Most of the Crypto stuff needs an https connexion, hence the whole certificate f
 
 If needed, here's the step I took to create the certificate chain, should work with Debian/Ubuntu on which OpenSSL is installed.
 
-Create stuff, answer questions, the only important one is the fully qualified domain name (FQDN), for which I'm using localhost :
+Create stuff, set password (here it's `password`), answer questions, the only important one is the fully qualified domain name (FQDN), for which I'm using localhost :
 
     openssl genrsa -des3 -out rootCA.key 2048
     openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 730 -out rootCert.pem
     openssl genrsa -out cert.key 2048
     openssl req -new -key cert.key -out cert.csr
 
-Create configuration file `openssl.cnf`, `[ alt_names ]` should be your FQDN : 
+Create configuration file `openssl.cnf`, in which `[ alt_names ]` should be your FQDN : 
 
     basicConstraints       = CA:FALSE
     authorityKeyIdentifier = keyid:always, issuer:always
