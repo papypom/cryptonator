@@ -36,3 +36,4 @@ After cloning this repo, copy the `.env.example` to `.env`, modify the DB connex
     php composer install
     npm install
     php artisan migrate
+
