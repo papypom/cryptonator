@@ -27,4 +27,12 @@ Then sign and verify stuff using :
     openssl x509 -req -in cert.csr -CA rootCert.pem -CAkey rootCA.key -CAcreateserial -out cert.crt -days 730 -sha256 -extfile openssl.cnf
     openssl verify -CAfile rootCert.pem -verify_hostname localhost cert.crt
 
-There, you have a full certificate chain (self signed, but usable nonetheless).
+There, you have a full certificate chain (self signed, but usable nonetheless). Don't forget to update your nginx config with the nginx.config file in the certificate folder.
+
+## Installing stuff
+
+After cloning this repo, copy the `.env.example` to `.env`, modify the DB connexion if needed (it will create a SQLite database by default) and run the following commands :
+
+    php composer install
+    npm install
+    php artisan migrate
